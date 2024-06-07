@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="HotelReservationDesktop.Views.MakeReservationControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HotelReservationDesktop.Views"
+             mc:Ignorable="d" 
+             MaxHeight="500" MaxWidth="700" VerticalAlignment="Center"
+             d:DesignHeight="500" d:DesignWidth="700">
+    <Border Background="White" Margin="16" Padding="32" BorderThickness="1">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Make a reservation" FontSize="24"/>
+
+            <StackPanel Grid.Row="1" Margin="0,8,0,0">
+                <TextBlock Text="Username" />
+                <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Padding="4" />
+            </StackPanel>
+
+            <Grid Grid.Row="2" Margin="0,8,0,0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,4,0">
+                    <TextBlock Text="Floor number" />
+                    <TextBox Text="{Binding FloorNumber, UpdateSourceTrigger=PropertyChanged}" Padding="4" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="1" Margin="4,0,0,0">
+                    <TextBlock Text="Room number" />
+                    <TextBox Text="{Binding RoomNumber, UpdateSourceTrigger=PropertyChanged}" Padding="4" />
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Row="3" Margin="0,8,0,0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,4,0">
+                    <TextBlock Text="Check in" />
+                    <DatePicker SelectedDate="{Binding CheckIn, UpdateSourceTrigger=PropertyChanged}" Padding="4" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="1" Margin="4,0,0,0">
+                    <TextBlock Text="Check out" />
+                    <DatePicker SelectedDate="{Binding CheckOut, UpdateSourceTrigger=PropertyChanged}" Padding="4" />
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Row="4" Margin="0,24,0,0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Command="{Binding CreateCommand}" Grid.Column="0" Content="Create" Margin="0,0,4,0" Padding="4"/>
+
+                <Button Command="{Binding CancelCommand}" Grid.Column="1" Content="Cancel" Margin="4,0,0,0" Padding="4"/>
+
+            </Grid>
+
+        </Grid>
+    </Border>
+</UserControl>

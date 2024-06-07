@@ -1,0 +1,22 @@
+﻿<Window x:Class="HotelReservationDesktop.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelReservationDesktop" xmlns:views="clr-namespace:HotelReservationDesktop.Views"
+        xmlns:viewmodels="clr-namespace:HotelReservationDesktop.ViewModels"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Hotel Reservation" Height="450" Width="800" FontSize="16" FontFamily="Candara" Background="SteelBlue">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type viewmodels:MakeReservationViewModel}">
+                <views:MakeReservationControl/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:ListReservationsViewModel}">
+                <views:ListReservationsControl/>
+            </DataTemplate>
+        </Grid.Resources>
+        <ContentControl Content="{Binding CurrentViewViewModel}"/>
+    </Grid>
+</Window>
